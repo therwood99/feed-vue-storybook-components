@@ -12,7 +12,9 @@
         </div>
         <div class="kicker">{{ feeditem.kicker }}</div>
         <div class="title">{{ feeditem.title }}</div>
-        <div class="comment">{{ feeditem.comment }}</div>
+        <div class="comment-wrapper">
+            <div class="comment">{{ feeditem.comment }}</div>
+        </div>
         <div class="social">
             <div class="social-likes">
                 <img class="social-icon" src="likes-icon.png" width="20" />

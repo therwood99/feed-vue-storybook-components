@@ -59,9 +59,12 @@
     font-weight: 700;
     color: #111C18;
 }
+.comment-wrapper {
+    width: auto;
+	padding: 1px 16px 0px;
+}
 .comment {
     width: 100%;
-	padding: 1px 16px 0px;
     font-size: 14px;
     font-family: 'Satoshi';
     font-weight: 400;
