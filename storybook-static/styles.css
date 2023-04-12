@@ -3,14 +3,15 @@
 .feedcard {
     display: flex;
     flex-direction: column;
-    width: 375px;
+    width: 100%;
     border-bottom: #6a716e4e solid 1px;
 }
 .row {
     display: flex;
     flex-direction: row;
     height: 58px;
-    padding: 10px 16px 0px;
+    width: 100%;
+    padding: 10px 16px 0px 16px;
 }
 .avatar {
     margin-right: 12px;
@@ -31,14 +32,18 @@
 }
 .date {
     height: 16px;
-    width: auto;
+    width: 100%;
     font-size: 12px;
 }
+.media {
+    width: auto;
+    padding: 0px 16px;
+}
 .image {
-    width: 343px;
-	padding: 0px 16px;
+    width: 100%;
 }
 .kicker {
+    width: 100%;
     padding: 16px 16px 0px;
     font-size: 12px;
     font-weight: 700;
@@ -47,6 +52,7 @@
     color: #6A716E;
 }
 .title {
+    width: 100%;
     padding: 1px 16px;
     font-size: 20px;
     font-style: normal;
@@ -54,6 +60,7 @@
     color: #111C18;
 }
 .comment {
+    width: 100%;
 	padding: 1px 16px 0px;
     font-size: 14px;
     font-family: 'Satoshi';
@@ -61,6 +68,7 @@
     color: #111C18;
 }
 .social {
+    width: 100%;
     padding: 16px;
 }
 .social-icon {
