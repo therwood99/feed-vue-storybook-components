@@ -5,7 +5,6 @@
     flex-direction: column;
     width: 375px;
     border-bottom: #6a716e4e solid 1px;
-    background-color: #cea4a4;
 }
 .row {
     display: flex;
