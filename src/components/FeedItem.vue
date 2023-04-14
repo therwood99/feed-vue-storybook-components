@@ -10,7 +10,7 @@
         <div class="media">
             <img class="image" :src=this.media />
         </div>
-        <div class="kicker">{{ feeditem.item_type }}</div>
+        <div class="kicker">{{ this.kicker }}</div>
         <div class="title">{{ feeditem.primary_com_name }}</div>
         <div class="comment-wrapper">
             <div class="comment">{{ feeditem.loc_name }}</div>
@@ -46,10 +46,28 @@ export default {
     },
     computed: {
         media() {
-            return `https://cdn.download.ams.birds.cornell.edu/api/v1/asset/${this.feeditem.asset_id}/2400`;
+            if (this.feeditem.item_type == 'sub') {
+                return 'submission-media.png'
+            } else {
+                return `https://cdn.download.ams.birds.cornell.edu/api/v1/asset/${this.feeditem.asset_id}/2400`;
+            }
         },
         timeago() {
             return moment(this.feeditem.item_dt).fromNow();
+        },
+        kicker() {
+            if (this.feeditem.item_type == 'species_trend') {
+                return 'Migration Alert';
+            }
+            else if (this.feeditem.item_type == 'asset') {
+                return 'Recently Uploaded Media';
+            }
+            else if (this.feeditem.item_type == 'sub') {
+                return 'Checklist Submission'
+            }
+            else if (this.feeditem.item_type == 'obs') {
+                return 'Notable Observation'
+            }
         }
     }
 };

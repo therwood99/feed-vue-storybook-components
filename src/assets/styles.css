@@ -49,11 +49,18 @@
     font-size: 12px;
 }
 .media {
+    max-height: 300px;
+    height: auto;
     width: auto;
     padding: 16px;
+    display: flex;
+    justify-content: center;
 }
 .image {
-    height: 300px;
+    max-height: 300px;
+    height: auto;
+    width: 100%;
+    max-width: max-content;
 }
 .kicker {
     width: 100%;
