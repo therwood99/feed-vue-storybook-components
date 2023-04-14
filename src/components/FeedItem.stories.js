@@ -23,6 +23,5 @@ Default.args = {
     item_type: 'Kicker',
     primary_com_name: 'Title',
     loc_name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  },
-  avatar: 'profile-image-loading.png'
+  }
 };

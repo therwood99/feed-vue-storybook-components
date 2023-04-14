@@ -3,7 +3,7 @@
         <div class="row">
             <div class="avatar"><img :src=this.avatar /></div>
             <div class="row-text">
-                <div class="author">{{ feeditem.user_display_name }}</div>
+                <div class="author">{{ this.author }}</div>
                 <div class="date">{{ timeago }}</div>
             </div>
         </div>
@@ -37,11 +37,6 @@ export default {
             required: true,
             default: () => ({ item_id: "", user_display_name: "", item_dt: new Date(), asset_id: 0, item_type: "", primary_com_name: "", loc_name: "" }),
             validator: (feeditem) => ["item_id", "user_display_name", "item_dt", "asset_id", "item_type", "primary_com_name", "loc_name"].every((key) => key in feeditem),
-        },
-        avatar: {
-            type: String,
-            required: false,
-            default: () => ('profile-image-loading.png')
         }
     },
     computed: {
@@ -58,16 +53,27 @@ export default {
         kicker() {
             if (this.feeditem.item_type == 'species_trend') {
                 return 'Migration Alert';
-            }
-            else if (this.feeditem.item_type == 'asset') {
+            } else if (this.feeditem.item_type == 'asset') {
                 return 'Recently Uploaded Media';
-            }
-            else if (this.feeditem.item_type == 'sub') {
+            } else if (this.feeditem.item_type == 'sub') {
                 return 'Checklist Submission'
-            }
-            else if (this.feeditem.item_type == 'obs') {
+            } else if (this.feeditem.item_type == 'obs') {
                 return 'Notable Observation'
-            }
+            };
+        },
+        author() {
+            if (this.feeditem.item_type == 'species_trend') {
+                return 'Cornell Lab of Ornithology';
+            } else {
+                return this.feeditem.user_display_name;
+            };
+        },
+        avatar() {
+            if (this.feeditem.item_type == 'species_trend') {
+                return 'lab-logo.png';
+            } else {
+                return `https://ui-avatars.com/api/?name=${(this.feeditem.user_display_name).replace(/\s/g, '+')}`;
+            };
         }
     }
 };
