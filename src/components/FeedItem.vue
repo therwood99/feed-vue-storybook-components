@@ -17,8 +17,9 @@
         </div>
         <div class="social">
             <div class="social-likes">
-                <img class="social-icon" src="likes-icon.png" width="20" />
-                <div class="social-count">0</div>
+                <div v-if="unliked" @click="unliked = !unliked & likes++"><img class="social-icon" src="likes-icon.png" width="20" /></div>
+                <div v-else @click="unliked = !unliked & likes--"><img class="social-icon" src="liked-icon.png" width="20" /></div>
+                <div class="social-count">{{likes}}</div>
             </div>
             <div class="social-comments">
                 <img class="social-icon" src="comments-icon.png" width="20" />
@@ -38,6 +39,12 @@ export default {
             default: () => ({ item_id: "", user_display_name: "", item_dt: new Date(), asset_id: 0, item_type: "", primary_com_name: "", loc_name: "", region: "", item_text: "", description: "" }),
             validator: (feeditem) => ["item_id", "user_display_name", "item_dt", "asset_id", "item_type", "primary_com_name", "loc_name", "region", "item_text", "description"].every((key) => key in feeditem),
         }
+    },
+    data() {
+        return {
+            unliked: true,
+            likes: 0,
+        };
     },
     computed: {
         media() {
