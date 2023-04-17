@@ -13,7 +13,7 @@
         <div class="kicker">{{ this.kicker }}</div>
         <div class="title">{{ feeditem.primary_com_name }}</div>
         <div class="comment-wrapper">
-            <div class="comment">{{ feeditem.loc_name }}</div>
+            <div class="comment">{{ this.comment }}</div>
         </div>
         <div class="social">
             <div class="social-likes">
@@ -35,44 +35,63 @@ export default {
         feeditem: {
             type: Object,
             required: true,
-            default: () => ({ item_id: "", user_display_name: "", item_dt: new Date(), asset_id: 0, item_type: "", primary_com_name: "", loc_name: "" }),
-            validator: (feeditem) => ["item_id", "user_display_name", "item_dt", "asset_id", "item_type", "primary_com_name", "loc_name"].every((key) => key in feeditem),
+            default: () => ({ item_id: "", user_display_name: "", item_dt: new Date(), asset_id: 0, item_type: "", primary_com_name: "", loc_name: "", region: "", item_text: "", description: "" }),
+            validator: (feeditem) => ["item_id", "user_display_name", "item_dt", "asset_id", "item_type", "primary_com_name", "loc_name", "region", "item_text", "description"].every((key) => key in feeditem),
         }
     },
     computed: {
         media() {
             if (this.feeditem.item_type == 'sub') {
-                return 'submission-media.png'
+                return 'submission-media.png';
             } else {
                 return `https://cdn.download.ams.birds.cornell.edu/api/v1/asset/${this.feeditem.asset_id}/2400`;
             }
         },
         timeago() {
-            return moment(this.feeditem.item_dt).fromNow();
+            if (this.feeditem.item_type == 'article') {
+                return '';
+            } else {
+                return moment(this.feeditem.item_dt).fromNow();
+            }
         },
         kicker() {
             if (this.feeditem.item_type == 'species_trend') {
-                return 'Migration Alert';
+                return `Migration Alert -- ${this.feeditem.description}`;
             } else if (this.feeditem.item_type == 'asset') {
-                return 'Recently Uploaded Media';
+                return `Recently Uploaded Media -- ${this.feeditem.description}`;
             } else if (this.feeditem.item_type == 'sub') {
-                return 'Checklist Submission'
+                return `Checklist Submission -- ${this.feeditem.description}`;
             } else if (this.feeditem.item_type == 'obs') {
-                return 'Notable Observation'
+                return `Notable Observation -- ${this.feeditem.description}`;
+            } else if (this.feeditem.item_type == 'article') {
+                return 'Fun Fact';
             };
         },
         author() {
             if (this.feeditem.item_type == 'species_trend') {
                 return 'Cornell Lab of Ornithology';
+            } else if (this.feeditem.item_type == 'article') {
+                return 'All About Birds';
             } else {
-                return this.feeditem.user_display_name;
+                return (this.feeditem.user_display_name == null) ? ('Anonymous eBirder') : (this.feeditem.user_display_name);
             };
         },
         avatar() {
-            if (this.feeditem.item_type == 'species_trend') {
+            if (this.feeditem.item_type == 'species_trend' || this.feeditem.item_type == 'article') {
                 return 'lab-logo.png';
+            } else if (this.feeditem.user_display_name == null) {
+                return 'profile-image-loading.png';
             } else {
                 return `https://ui-avatars.com/api/?name=${(this.feeditem.user_display_name).replace(/\s/g, '+')}`;
+            };
+        },
+        comment() {
+            if (this.feeditem.item_type == 'species_trend' || this.feeditem.item_type == 'article') {
+                return this.feeditem.item_text;
+            } else if (this.feeditem.region == null) {
+                return this.feeditem.loc_name;
+            } else {
+                return `${this.feeditem.loc_name}, ${this.feeditem.region}`;
             };
         }
     }
