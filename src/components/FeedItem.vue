@@ -75,10 +75,8 @@ export default {
             };
         },
         author() {
-            if (this.feeditem.item_type == 'species_trend') {
-                return 'Cornell Lab of Ornithology';
-            } else if (this.feeditem.item_type == 'article') {
-                return 'All About Birds';
+            if (this.feeditem.item_type == 'species_trend' || this.feeditem.item_type == 'article') {
+                return 'Merlin';
             } else {
                 return (this.feeditem.user_display_name == null) ? ('Anonymous eBirder') : (this.feeditem.user_display_name);
             };

@@ -1,8 +1,8 @@
 <template>
     <div class="region">
         <div class="reg-code">{{ (this.region_code).toUpperCase() }}</div>
-        <button v-if="unfollowed" class="follow-action follow">Follow</button>
-        <button v-else class="follow-action unfollow">Unfollow</button>
+        <button v-if="unfollowed" class="follow-action follow" @click="followRegion">Follow</button>
+        <button v-else class="follow-action unfollow" @click="unfollowRegion">Unfollow</button>
     </div>
 </template>
 <script>
@@ -13,7 +13,7 @@ export default {
         region_code: {
             type: String,
             required: true,
-            default: () => (""),
+            default: () => ("Reg-Code"),
         },
         user_id: {
             type: Number,
@@ -35,6 +35,30 @@ export default {
             const res = await fetch(this.apiurl);
             const finalRes = await res.json();
             this.unfollowed = !finalRes;
+        },
+        followRegion() {
+            fetch(`https://eubezqwowmaahphqywys.supabase.co/rest/v1/rpc/follow_region?`, {
+                method: "POST", headers: {
+                    "Content-Type": "application/json",
+                    "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV1YmV6cXdvd21hYWhwaHF5d3lzIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzgyMDIxNTAsImV4cCI6MTk5Mzc3ODE1MH0.TBXYiMPSBsKp9S0Yqrfvn4xuJZutQ6w5bmvajVlGuAs"
+                }, body: JSON.stringify({
+                    p_user_id: this.user_id,
+                    p_region_code: this.region_code
+                })
+            });
+            this.unfollowed = !this.unfollowed;
+        },
+        unfollowRegion() {
+            fetch(`https://eubezqwowmaahphqywys.supabase.co/rest/v1/rpc/unfollow_region?`, {
+                method: "POST", headers: {
+                    "Content-Type": "application/json",
+                    "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV1YmV6cXdvd21hYWhwaHF5d3lzIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzgyMDIxNTAsImV4cCI6MTk5Mzc3ODE1MH0.TBXYiMPSBsKp9S0Yqrfvn4xuJZutQ6w5bmvajVlGuAs"
+                }, body: JSON.stringify({
+                    p_user_id: this.user_id,
+                    p_region_code: this.region_code
+                })
+            });
+            this.unfollowed = !this.unfollowed;
         }
     },
     mounted() {
