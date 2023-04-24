@@ -6,9 +6,9 @@
     </div>
 </template>
 <script>
-import Region from "./Region.vue";
+import User from "./User.vue";
 export default {
-    name: "Region",
+    name: "User",
     props: {
         username: {
             type: String,
@@ -28,7 +28,7 @@ export default {
         }
     },
     components: {
-        Region
+        User
     },
     methods: {
         async getData() {
