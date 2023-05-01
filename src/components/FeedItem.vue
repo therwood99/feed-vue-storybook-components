@@ -65,7 +65,7 @@ export default {
             if (this.feeditem.item_type == 'species_trend') {
                 return `Migration Alert -- ${this.feeditem.description}`;
             } else if (this.feeditem.item_type == 'asset') {
-                return `Recently Uploaded Media -- ${this.feeditem.description}`;
+                return `Recently Uploaded Media -- ${Number(this.feeditem.description)} stars`;
             } else if (this.feeditem.item_type == 'sub') {
                 return `Checklist Submission -- ${this.feeditem.description}`;
             } else if (this.feeditem.item_type == 'obs') {

@@ -19,11 +19,16 @@ export default {
             type: Number,
             required: true,
             default: () => (0),
+        },
+        apikey: {
+            type: String,
+            required: true,
+            default: () => ("")
         }
     },
     data() {
         return {
-            apiurl: `https://eubezqwowmaahphqywys.supabase.co/rest/v1/rpc/user_followed?p_user_id=${this.user_id}&p_username=${this.username}&apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV1YmV6cXdvd21hYWhwaHF5d3lzIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzgyMDIxNTAsImV4cCI6MTk5Mzc3ODE1MH0.TBXYiMPSBsKp9S0Yqrfvn4xuJZutQ6w5bmvajVlGuAs`,
+            apiurl: `https://eubezqwowmaahphqywys.supabase.co/rest/v1/rpc/user_followed?p_user_id=${this.user_id}&p_username=${this.username}&apikey=${this.apikey}`,
             unfollowed: true,
         }
     },
@@ -40,7 +45,7 @@ export default {
             fetch(`https://eubezqwowmaahphqywys.supabase.co/rest/v1/rpc/follow_user?`, {
                 method: "POST", headers: {
                     "Content-Type": "application/json",
-                    "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV1YmV6cXdvd21hYWhwaHF5d3lzIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzgyMDIxNTAsImV4cCI6MTk5Mzc3ODE1MH0.TBXYiMPSBsKp9S0Yqrfvn4xuJZutQ6w5bmvajVlGuAs"
+                    "apikey": this.apikey
                 }, body: JSON.stringify({
                     p_user_id: this.user_id,
                     p_username: this.username
@@ -52,7 +57,7 @@ export default {
             fetch(`https://eubezqwowmaahphqywys.supabase.co/rest/v1/rpc/unfollow_user?`, {
                 method: "POST", headers: {
                     "Content-Type": "application/json",
-                    "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV1YmV6cXdvd21hYWhwaHF5d3lzIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzgyMDIxNTAsImV4cCI6MTk5Mzc3ODE1MH0.TBXYiMPSBsKp9S0Yqrfvn4xuJZutQ6w5bmvajVlGuAs"
+                    "apikey": this.apikey
                 }, body: JSON.stringify({
                     p_user_id: this.user_id,
                     p_username: this.username

@@ -19,10 +19,15 @@ import FeedItem from "./FeedItem.vue";
 export default {
     name: "Feed",
     props: {
-        apiurl: {
+        apikey: {
             type: String,
             required: true,
             default: () => (""),
+        },
+        user_id: {
+            type: Number,
+            required: true,
+            default: () => (0),
         },
         loading: {
             type: Boolean,
@@ -35,7 +40,8 @@ export default {
     },
     data() {
         return {
-            FeedItems: []
+            FeedItems: [],
+            apiurl: `https://eubezqwowmaahphqywys.supabase.co/rest/v1/rpc/get_feed?p_item_type=all&p_user_id=${this.user_id}&apikey=${this.apikey}`
         }
     },
     methods: {
