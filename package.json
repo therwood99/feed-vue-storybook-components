@@ -21,11 +21,14 @@
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "storybook": "start-storybook -p 6006",
+    "predeploy": "npm run build-storybook",
+    "deploy-storybook": "gh-pages -d storybook-static",
     "build-storybook": "build-storybook",
     "init-msw": "msw init public/",
     "chromatic": "npx chromatic --project-token=6c1aec176c8c"
   },
   "dependencies": {
+    "@storybook/storybook-deployer": "^2.8.16",
     "core-js": "^3.8.3",
     "date-fns": "^2.29.3",
     "moment": "^2.29.4",
@@ -56,13 +59,14 @@
     "chromatic": "^6.17.3",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
+    "gh-pages": "^5.0.0",
     "jest": "^27.0.5",
     "msw": "^0.42.0",
     "msw-storybook-addon": "^1.6.3",
     "vue-loader": "^16.8.3"
   },
   "readme": "ERROR: No README data found!",
-  "homepage": "https://github.com/chromaui/intro-storybook-vue-template#readme",
+  "homepage": "https://therwood99.github.io/feed-vue-storybook-components",
   "_id": "intro-storybook-vue-template@0.1.0",
   "msw": {
     "workerDirectory": "public"

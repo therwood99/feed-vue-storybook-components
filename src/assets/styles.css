@@ -1,5 +1,8 @@
 /*styles.css*/
 /* STYLES */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 .search-result {
     height: 50px;
     width: 50%;
@@ -34,7 +37,7 @@
 }
 .feed {
     height: 100%;
-    width: 100%;
+    width: 375px;
     overflow-x: hidden;
     overflow-y: scroll;
 }
@@ -118,7 +121,6 @@
 .comment {
     width: 100%;
     font-size: 14px;
-    font-family: 'Satoshi';
     font-weight: 400;
     color: #111C18;
 }
