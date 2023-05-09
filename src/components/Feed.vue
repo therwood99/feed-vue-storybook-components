@@ -33,6 +33,11 @@ export default {
             type: Boolean,
             required: true,
             default: () => (true),
+        },
+        item_type: {
+            type: String,
+            required: true,
+            default: () => ("all"),
         }
     },
     components: {
@@ -41,7 +46,7 @@ export default {
     data() {
         return {
             FeedItems: [],
-            apiurl: `https://eubezqwowmaahphqywys.supabase.co/rest/v1/rpc/get_feed?p_item_type=all&p_user_id=${this.user_id}&apikey=${this.apikey}`
+            apiurl: `https://eubezqwowmaahphqywys.supabase.co/rest/v1/rpc/get_feed?p_item_type=${this.item_type}&p_user_id=${this.user_id}&apikey=${this.apikey}`
         }
     },
     methods: {

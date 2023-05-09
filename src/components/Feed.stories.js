@@ -18,6 +18,7 @@ Default.args = {
   apikey: '',
   user_id: 0,
   loading: false,
+  item_type: 'all',
 };
 
 export const Loading = Template.bind({});
@@ -25,4 +26,5 @@ Loading.args = {
   apikey: '',
   user_id: 0,
   loading: true,
+  item_type: 'all',
 };
