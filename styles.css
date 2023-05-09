@@ -3,6 +3,7 @@
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
 .search-result {
     height: 50px;
     width: 50%;
@@ -15,11 +16,13 @@ body {
     justify-content: space-between;
     padding: 20px;
 }
+
 .result {
     font-size: 20px;
     color: #FFFFFF;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
 .follow-action {
     border: none;
     border-radius: 5px;
@@ -27,85 +30,97 @@ body {
     width: 40%;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
 .follow {
     background-color: #e6ffc6;
     color: #79AC38;
 }
+
 .unfollow {
     background-color: #ffcccc;
     color: #FF0000;
 }
+
 .feed {
     height: 100%;
-    width: 375px;
+    width: auto;
     overflow-x: hidden;
     overflow-y: scroll;
 }
+
 .loading-feed {
     height: 100%;
     width: auto;
     padding: 0px 16px;
 }
+
 .loader {
     width: 100%;
 }
+
 .feedcard {
     display: flex;
     flex-direction: column;
     width: 100%;
     border-bottom: #6a716e4e solid 1px;
 }
+
 .row {
     display: flex;
     flex-direction: row;
     width: 100%;
-    padding: 10px 16px 0px;
+    padding: 10px 16px 8px;
 }
+
 .avatar {
     margin-right: 12px;
 }
+
 .avatar img {
     height: 40px;
     width: 40px;
     border-radius: 50%;
 }
+
 .row-text {
     display: flex;
     flex-direction: column;
     padding-top: 4px;
 }
+
 .author {
     height: 22px;
     font-size: 16px;
 }
+
 .date {
     height: 16px;
     width: 100%;
     font-size: 12px;
 }
+
 .media {
-    max-height: 300px;
-    height: auto;
-    width: auto;
-    padding: 16px;
+    max-width: 100%;
     display: flex;
     justify-content: center;
+    padding: 8px 16px;
 }
+
 .image {
     max-height: 300px;
-    height: auto;
-    width: 100%;
-    max-width: max-content;
+    max-width: 353px;
 }
+
 .kicker {
     width: 100%;
-    padding: 0px 16px;
+    padding: 8px 16px 0px;
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #6A716E;
 }
+
 .title {
     width: 100%;
     padding: 1px 16px;
@@ -114,30 +129,107 @@ body {
     font-weight: 700;
     color: #111C18;
 }
-.comment-wrapper {
+
+.detail-wrapper {
     width: auto;
-	padding: 1px 16px 0px;
+    padding: 1px 16px 0px;
 }
-.comment {
+
+.detail {
     width: 100%;
     font-size: 14px;
     font-weight: 400;
     color: #111C18;
 }
+
 .social {
-    width: 100%;
+    width: auto;
     padding: 16px;
 }
+
 .social-icon {
     height: 16px;
     width: 16px;
     float: left;
     margin-right: 5px;
 }
+
 .social-count {
     float: left;
     height: 16px;
     margin-right: 10px;
     font-size: 12px;
     align-content: center;
+}
+
+.comment-wrapper {
+    width: auto;
+    padding: 5px 16px;
+    border-top: #6a716e4e solid 1px;
+}
+
+.social-comments {
+    width: 100%;
+}
+
+.view-comments-wrapper {
+    text-align: right;
+    padding: auto;
+}
+
+.view-comments {
+    cursor: pointer;
+    display: inline;
+    font-size: 12px;
+    width: auto;
+    color: #0070b3;
+    padding: auto;
+}
+
+.comment-author {
+    font-size: x-small;
+    font-weight: bold;
+}
+
+.comment-date {
+    font-size: x-small;
+    color: gray;
+    text-align: right;
+    display: inline-block;
+    width: 100%;
+}
+
+.comment-reply {
+    font-size: x-small;
+    cursor: pointer;
+    display: inline;
+    vertical-align: top;
+}
+
+.li-comment {
+    background-color: #eee;
+    padding: 5px 5px 0;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.li-reply {
+    margin-left: 16px;
+}
+
+ul {
+    list-style: none;
+}
+
+.add-comment {
+    width: auto;
+    margin: 2px 16px 5px 0px;
+}
+
+input {
+    border-radius: 5px;
+    height: 24px;
+    width: 100%;
+    border: 1px solid #c6ceca;
+    padding-left: 8px;
 }
