@@ -8,7 +8,7 @@
         <template v-else>
             <section>
                 <div class="feed">
-                    <FeedItem v-for="item in FeedItems" :feeditem="item"></FeedItem>
+                    <FeedItem v-for="item in FeedItems" :feeditem="item" :apikey="apikey" :feeduser="user_id"></FeedItem>
                 </div>
             </section>
         </template>

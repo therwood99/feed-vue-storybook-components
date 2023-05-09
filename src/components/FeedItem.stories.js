@@ -15,6 +15,8 @@ const Template = args => ({
 
 export const Default = Template.bind({});
 Default.args = {
+  apikey: '',
+  feeduser: 0,
   feeditem: {
     feed_id: "1",
     user_display_name: 'First Last',
